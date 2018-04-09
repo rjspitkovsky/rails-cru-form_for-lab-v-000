@@ -18,10 +18,11 @@ class ArtistsController < ApplicationController
   end
 
   def edit
+    @artist = Artist.find(params[:id])
   end
 
   def post_params(*args)
     params.require(:artist).permit(*args)
-  end 
+  end
 
 end
