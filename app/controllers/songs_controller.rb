@@ -9,9 +9,9 @@ class SongsController < ApplicationController
   end
 
   def create
-    @artist = Artist.find_by(name: params[:artist])
-    @genre = Genre.find_by(name: params[:genre])
-    @song = Song.new(post_params(:name, @artist.id, @genre.id))
+    # @artist = Artist.find_by(name: params[:artist])
+    # @genre = Genre.find_by(name: params[:genre])
+    @song = Song.new(post_params(:name, :artist_id, :genre_id))
     @song.save
     redirect_to song_path(@song)
   end
