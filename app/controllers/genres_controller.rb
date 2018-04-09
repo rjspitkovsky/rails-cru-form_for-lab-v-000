@@ -9,14 +9,14 @@ class GenresController < ApplicationController
   end
 
   def create
-    @genre = Genre.new(post_params(:name, :bio))
+    @genre = Genre.new(post_params(:name)
     @genre.save
     redirect_to genre_path(@genre)
 
 
   def update
     @genre = Genre.find(params[:id])
-    @genre.update(post_params(:name, :bio))
+    @genre.update(post_params(:name)
     redirect_to genre_path(@genre)
   end
 
