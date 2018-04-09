@@ -17,11 +17,13 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id])
   end
 
-  def edit 
+  def edit
     @song = Song.find(params[:id])
-  end 
+  end
 
-  def update 
+  def update
+    @artist = Artist.find_by(name: params[:artist])
+    @genre = Genre.find_by(name: params[:genre])
     @song = Song.find(params[:id])
     @song.update(post_params(:name, @artist.id, @genre.id))
     redirect_to song_path(@song)
@@ -29,5 +31,5 @@ class SongsController < ApplicationController
 
   def post_params(*args)
     params.require(:song).permit(*args)
-  end 
+  end
 end
