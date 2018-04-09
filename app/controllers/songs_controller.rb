@@ -5,7 +5,7 @@ class SongsController < ApplicationController
   end
 
   def new
-    @song = Song.find_by_id(params[:id])
+    @song = Song.new
   end
 
   def create
